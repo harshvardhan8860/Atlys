@@ -10,7 +10,7 @@
 
 1. Clone the repo in any directory where Java and Maven paths are set
 
-        `git clone https://github.com/harshvardhan8860/Atlys.git`
+        git clone https://github.com/harshvardhan8860/Atlys.git
 
 2. Run this command to run all the tests
 
