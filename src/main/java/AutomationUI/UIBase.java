@@ -7,18 +7,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class UIBase {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
     public void setUpDriverAndOpenUrl(String url) {
+
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get(url);
+        System.out.println("Url opened");
+
     }
 
-
     public void teardownDriver() {
+
         if(driver != null) {
             driver.quit();
         }
