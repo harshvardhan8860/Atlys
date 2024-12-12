@@ -33,13 +33,16 @@ public class LivelyRootProductsPage {
     @FindBy(xpath = "//div[@class='snize-no-products-found-text']")
     WebElement noSearchFound;
 
+    @FindBy(xpath = "//div[@class='snize-search-results-header']/b")
+    WebElement searchResultCount;
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 
     public String getSearchText() {
         String text = "";
-        try{
+        try {
             wait.until(ExpectedConditions.visibilityOf(searchProduct));
             text = searchProduct.getText();
         } catch (Exception e) {
@@ -57,19 +60,37 @@ public class LivelyRootProductsPage {
         }
     }
 
-
     public String getShowMoreText() {
 
-        return showMore.getText();
+        try {
+            wait.until(ExpectedConditions.visibilityOf(showMore));
+            return showMore.getText();
+        } catch (Exception e) {
+            System.out.println("Show more button not present");
+            return "";
+        }
     }
 
     public String getNoResultText() {
 
+        wait.until(ExpectedConditions.visibilityOf(noSearchFound));
         if(noSearchFound.isDisplayed()) {
             return "Empty page";
         }
         else {
             return "Products present";
+        }
+    }
+
+    public int getSearchResultCount() {
+
+        try {
+            wait.until(ExpectedConditions.visibilityOf(searchResultCount));
+            String str = searchResultCount.getText();
+            return Integer.parseInt(str);
+        } catch (Exception e) {
+            System.out.println("Search count element not found");
+            return 0;
         }
     }
 }

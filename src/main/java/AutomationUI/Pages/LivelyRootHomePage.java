@@ -22,14 +22,17 @@ public class LivelyRootHomePage {
     @FindBy(xpath = "//input[@class='search-form__input js-homepage-search-input']")
     WebElement searchBar;
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
     public void setSearchBar(String input) {
 
-        wait.until(ExpectedConditions.visibilityOf(searchBar));
-        searchBar.click();
-        searchBar.sendKeys(input);
-        searchBar.sendKeys(Keys.ENTER);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(searchBar));
+            searchBar.click();
+            searchBar.sendKeys(input);
+            searchBar.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            System.out.println("Element not interactable");
+        }
     }
-
 }

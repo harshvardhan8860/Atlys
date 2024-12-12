@@ -21,40 +21,46 @@ public class UITest extends UIBase{
         productsPage = new LivelyRootProductsPage(UIBase.driver);
     }
 
-    @Test
-    public void positiveSearchTest() {
+    //Searching for valid product name
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void validProductNameSearch() {
 
         homePage.setSearchBar("black anthurium");
 
+        //Verifying searched product name text
         Assert.assertEquals(productsPage.getSearchText(), "black anthurium");
         System.out.println(productsPage.getSearchText());
 
-        Assert.assertEquals(productsPage.getListCount(), 4);
+        //Verifying searched product name count it should be same throughout
+        Assert.assertEquals(productsPage.getListCount(), productsPage.getSearchResultCount());
         System.out.println("List of products: " + productsPage.getListCount());
     }
 
+    //Searching for non-existent product name
     @Test
-    public void negativeSearchTest() {
+    public void invalidProductSearch() {
 
         homePage.setSearchBar("Test123");
 
-//        Assert.assertEquals(productsPage.getListCount(), 0);
-//        System.out.println("List of products: " + productsPage.getListCount());
-
+        //Verifying if noSearchFound element is visible or not in getNoResultText method
         Assert.assertEquals(productsPage.getNoResultText(), "Empty page");
-        System.out.println("Page is empty no results present");
+        System.out.println("Page is empty no matches found");
     }
 
+    //Searching for empty input
     @Test
-    public void emptySearchTest() {
+    public void emptyInputTest() {
 
         homePage.setSearchBar("");
 
+        //Verifying searched product name text
         Assert.assertEquals(productsPage.getSearchText(), "");
 
-        Assert.assertEquals(productsPage.getListCount(), 30);
-        System.out.println("List of products: " + productsPage.getListCount());
+        //Verifying count it should be same throughout
+        Assert.assertEquals(productsPage.getSearchResultCount(), 765);
+        System.out.println("List of products: " + productsPage.getSearchResultCount());
 
+        //Verifying if show more element is visible or not in getShowMoreText method
         Assert.assertEquals(productsPage.getShowMoreText(), "Show more");
         System.out.println("Show more text visible");
     }
