@@ -31,8 +31,8 @@ or this cmmand to run specific test
 
 2. Reload Maven Project via Maven window
 
-![img.png](img.png)
+<img width="1470" alt="Screenshot 2024-12-12 at 3 10 22 PM" src="https://github.com/user-attachments/assets/f10dd212-fc3f-48e7-bfc5-5c1e5fe43dfa" />
 
 3. Run any test class or method from UI
 
-![img_1.png](img_1.png)
+<img width="1470" alt="Screenshot 2024-12-12 at 3 12 27 PM" src="https://github.com/user-attachments/assets/b4975e0f-dcd2-4368-9a34-2605e9ae4ac7" />
