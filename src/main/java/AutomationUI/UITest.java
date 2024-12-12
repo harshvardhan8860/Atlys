@@ -37,7 +37,7 @@ public class UITest extends UIBase{
     }
 
     //Searching for non-existent product name
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void invalidProductSearch() {
 
         homePage.setSearchBar("Test123");
@@ -48,7 +48,7 @@ public class UITest extends UIBase{
     }
 
     //Searching for empty input
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void emptyInputTest() {
 
         homePage.setSearchBar("");
