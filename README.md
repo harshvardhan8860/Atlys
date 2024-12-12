@@ -14,18 +14,17 @@
 
 2. Run this command to run all the tests
 
-         `mvn test`
+         mvn test
 
     or this cmmand to run specific test
 
-         `mvn test -Dtest={TestClassName}`
+         mvn test -Dtest={TestClassName}
 
 **Method 2:**
 
 1. Clone the repo in IDE
 
-`git clone https://github.com/harshvardhan8860/Atlys.git
-`
+        git clone https://github.com/harshvardhan8860/Atlys.git
 
 2. Reload Maven Project via Maven window
 
