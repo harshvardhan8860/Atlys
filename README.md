@@ -12,6 +12,7 @@
 
 `git clone https://github.com/harshvardhan8860/Atlys.git
 `
+
 2. Run this command to run all the tests
 
 `mvn test
