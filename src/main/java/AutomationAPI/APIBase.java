@@ -5,7 +5,7 @@ import static io.restassured.RestAssured.*;
 
 public class APIBase {
 
-    public static final String apiBaseUrl = "https://api.restful-api.dev/";
+    private static final String apiBaseUrl = "https://api.restful-api.dev/";
 
     // Helper method to make the Get API call
     public Response sendGetRequest(String endpoint) {
